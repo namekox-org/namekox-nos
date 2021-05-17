@@ -39,7 +39,7 @@ class NosHelper(Dependency):
     def configs(self):
         return self.container.config.get(NOS_CONFIG_KEY, {})
 
-    def gen_url(self, bucket_name, object_name, ttl=86400):
+    def gen_url(self, bucket_name, object_name, ttl=31536000):
         name = quote_plus(object_name)
         expires_time = int(time.time()) + ttl
         path = '/{}/{}'.format(bucket_name, name)
